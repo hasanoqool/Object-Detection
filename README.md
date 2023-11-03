@@ -6,9 +6,8 @@ You Only Look Once (YOLO) and Fast Region-based Convolutional Neural Network (Fa
     * Extract features from images using pre-traineed network
 
 
-## Running fine_tune_keras.py
-* <b>Fine-tuning</b> a network using the Keras API.
-* Dataset LINK : <b>http://www.robots.ox.ac.uk/~vgg/data/flowers/17</b>
+## obj_pyramids_sliding.py
+* object detector with <b>image pyramids</b> and <b>sliding windows</b>.
 
 * <b>Sample Image</b>
 
