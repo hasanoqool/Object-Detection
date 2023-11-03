@@ -132,3 +132,7 @@ def main():
              y = y_start + 10
         cv2.putText(clone, label, (x_start, y),cv2.FONT_HERSHEY_SIMPLEX, .45, GREEN, 2)
     cv2.imwrite(f'After_{i}.jpg', clone)
+
+
+if __name__ == "__main__" :
+    main()
