@@ -136,56 +136,53 @@ class ObjectDetector(object):
 
         return labels
 
-def main():
-    model = InceptionResNetV2(weights='imagenet',
-                            include_top=True)
-    object_detector = ObjectDetector(model, preprocess_input)
 
-    image = cv2.imread('/content/drive/MyDrive/Colab Notebooks/Computer Vision Repos/datasets/dog.jpg')
-    image = imutils.resize(image, width=600)
-    labels = object_detector.detect(image)
+model = InceptionResNetV2(weights='imagenet',
+                          include_top=True)
+object_detector = ObjectDetector(model, preprocess_input)
 
-    GREEN = (0, 255, 0)
-    for i, label in enumerate(labels.keys()):
-        clone = image.copy()
+image = cv2.imread('/content/drive/MyDrive/Colab Notebooks/Computer Vision Repos/datasets/dog.jpg')
+image = imutils.resize(image, width=600)
+labels = object_detector.detect(image)
 
-        for detection in labels[label]:
-            box = detection['box']
-            probability = detection['proba']
+GREEN = (0, 255, 0)
+for i, label in enumerate(labels.keys()):
+    clone = image.copy()
 
-            x_start, y_start, x_end, y_end = box
-            cv2.rectangle(clone, (x_start, y_start),
-                        (x_end, y_end), (0, 255, 0), 2)
+    for detection in labels[label]:
+        box = detection['box']
+        probability = detection['proba']
 
-        cv2.imwrite(f'Before_{i}.jpg', clone)
+        x_start, y_start, x_end, y_end = box
+        cv2.rectangle(clone, (x_start, y_start),
+                      (x_end, y_end), (0, 255, 0), 2)
 
-        clone = image.copy()
-        boxes = np.array([d['box'] for d in labels[label]])
-        probas = np.array([d['proba'] for d in labels[label]])
-        boxes = object_detector.non_max_suppression(boxes,
-                                                    probas)
+    cv2.imwrite(f'Before_{i}.jpg', clone)
 
-        for x_start, y_start, x_end, y_end in boxes:
-            cv2.rectangle(clone,
-                        (x_start, y_start),
-                        (x_end, y_end),
-                        GREEN,
-                        2)
+    clone = image.copy()
+    boxes = np.array([d['box'] for d in labels[label]])
+    probas = np.array([d['proba'] for d in labels[label]])
+    boxes = object_detector.non_max_suppression(boxes,
+                                                probas)
 
-            if y_start - 10 > 10:
-                y = y_start - 10
-            else:
-                y = y_start + 10
+    for x_start, y_start, x_end, y_end in boxes:
+        cv2.rectangle(clone,
+                      (x_start, y_start),
+                      (x_end, y_end),
+                      GREEN,
+                      2)
 
-            cv2.putText(clone,
-                        label,
-                        (x_start, y),
-                        cv2.FONT_HERSHEY_SIMPLEX,
-                        .45,
-                        GREEN,
-                        2)
+        if y_start - 10 > 10:
+            y = y_start - 10
+        else:
+            y = y_start + 10
 
-        cv2.imwrite(f'After_{i}.jpg', clone)
+        cv2.putText(clone,
+                    label,
+                    (x_start, y),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    .45,
+                    GREEN,
+                    2)
 
-if __name__ == "__main__":
-    main()
+    cv2.imwrite(f'After_{i}.jpg', clone)
