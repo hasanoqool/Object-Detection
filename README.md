@@ -12,7 +12,7 @@ You Only Look Once (YOLO) and Fast Region-based Convolutional Neural Network (Fa
 
 * <b>Sample Image</b>
 
-    ![1](https://github.com/hasanoqool/TransferLearning/blob/main/images/dog.jpg)
+    ![1](https://github.com/hasanoqool/Object-Detection/blob/main/data/dog.jpg)
 
 * <b>Without NMS</b>
 
