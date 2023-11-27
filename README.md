@@ -1,9 +1,10 @@
 # Object-Detection
-You Only Look Once (YOLO) and Fast Region-based Convolutional Neural Network (Fast R-CNN) from scratch.
+Object detection with You Only Look Once (YOLO), image pyramids and sliding windows.
 
 # Overview
 * The steps of this project are the following:
-    * Extract features from images using pre-traineed network
+    * Detecting objects with image pyramids and sliding windows
+    * Detecting objects with YOLOv3 from scrath
 
 
 ## Running obj_pyramids_sliding.py
