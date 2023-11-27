@@ -507,11 +507,11 @@ class YOLO(object):
             height = y2 - y1
 
             rectangle = Rectangle((x1, y1), width, height,
-                                  fill=False, color='white')
+                                  fill=False, color='green')
 
             ax.add_patch(rectangle)
             label = f'{v_labels[i]} ({v_scores[i]:.3f})'
-            plt.text(x1, y1, label, color='yellow')
+            plt.text(x1, y1, label, color='red')
         plt.show()
 
     def detect(self, image, width, height):
