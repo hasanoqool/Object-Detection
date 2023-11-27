@@ -111,8 +111,8 @@ class BoundBox(object):
 
 class YOLO(object):
     def __init__(self, weights_path,
-                 anchors_path='resources/anchors.json',
-                 labels_path='resources/coco_labels.txt',
+                 anchors_path='/content/test/anchors.json',
+                 labels_path='/content/test/coco_labels.txt',
                  class_threshold=0.65):
         self.weights_path = weights_path
         self.model = self._load_yolo()
@@ -543,9 +543,9 @@ class YOLO(object):
                          valid_labels,
                          valid_scores)
         
-model = YOLO(weights_path='yolov3.weights')
+model = YOLO(weights_path='/content/drive/MyDrive/Colab Notebooks/Computer Vision Repos/weights/yolov3.weights')
 
-for image_path in glob.glob('test_images/*.jpg'):
+for image_path in glob.glob('/content/test/*.jpg'):
     image = load_img(image_path, target_size=(416, 416))
     image = img_to_array(image)
     image = image.astype('float32') / 255.0
