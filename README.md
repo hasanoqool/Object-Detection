@@ -4,7 +4,7 @@ Object detection with You Only Look Once (YOLO), image pyramids and sliding wind
 # Overview
 * The steps of this project are the following:
     * Detecting objects with image pyramids and sliding windows
-    * Detecting objects with YOLOv3 from scrath
+    * Detecting objects with YOLOv3 from scratch
 
 
 ## Running obj_pyramids_sliding.py
