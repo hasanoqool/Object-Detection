@@ -1,4 +1,4 @@
-OpenCV
+opencv-python-headless
 Pillow
 imutils
 tqdm
