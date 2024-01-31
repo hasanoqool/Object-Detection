@@ -40,10 +40,10 @@ def draw_bounding_box(img, class_id, confidence, left, top, right, bottom):
     label = "{}: {:.2f}%".format(classes[class_id], confidence * 100)
     color = tuple([int(255*x) for x in colors[class_id]])
     top = top - 15 if top - 15 > 15 else top + 15
-    pil_im = Image.fromarray(cv2.cvtColor(img,cv2.COLOR_BGR2RGB)) 
+    pil_im = Image.fromarray(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
     thickness = (img.shape[0] + img.shape[1]) // 300
-    font = ImageFont.truetype("/content/verdana.ttf", 25) 
-    draw = ImageDraw.Draw(pil_im)  
+    font = ImageFont.truetype("/content/verdana.ttf", 25)
+    draw = ImageDraw.Draw(pil_im)
     label_size = draw.textsize(label, font)
     if top - label_size[1] >= 0:
         text_origin = np.array([left, top - label_size[1]])
@@ -54,9 +54,9 @@ def draw_bounding_box(img, class_id, confidence, left, top, right, bottom):
     draw.rectangle([tuple(text_origin), tuple(text_origin +  label_size)], fill=color)
     draw.text(text_origin, label, fill=(0, 0, 0), font=font)
     del draw
-    img = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)  
-    
-    return img    
+    img = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)
+
+    return img
 
 # Remove the bounding boxes with low confidence using non-maxima suppression
 def post_process(img, outs):
@@ -99,14 +99,14 @@ def post_process(img, outs):
         width = box[2]
         height = box[3]
         img = draw_bounding_box(img, class_ids[i], confidences[i], left, top, left + width, top + height)
-        
-    return img    
+
+    return img
 
 def main():
 
     # Give the configuration and weight files for the model and load the network using them.
     model_configuration = "/content/yolov3.cfg"
-    
+
     # to download weights --> !wget https://pjreddie.com/media/files/yolov3.weights
     model_weights = "/content/yolov3.weights"
 
@@ -131,9 +131,12 @@ def main():
 
     # Remove the bounding boxes with low confidence
     img = post_process(img, outs)
-
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     fig = plt.figure(figsize=(20,15))
-    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)), plt.axis('off'), plt.title('YoloV3 Objects detection using opencv', size=20)
+    plt.imshow(img)
+    plt.axis('off')
+    plt.title('YoloV3 Objects detection using opencv', size=20)
     plt.show()
+    
 if __name__ == "__main__":
     main()
