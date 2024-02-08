@@ -2,7 +2,7 @@
 Object detection with Histogram tech (HOG),
 Object detection with Image pyramids and sliding windows,
 Object detection with You Only Look Once (YOLO) using OpenCV,
-Object detection with You Only Look Once (YOLO) usiing Tensorflow,
+Object detection with You Only Look Once (YOLO) using Tensorflow,
 Object detection with Faster RCNN,
 Object detection with Mask RCNN.
 
