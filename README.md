@@ -3,11 +3,14 @@ Object detection with You Only Look Once (YOLO), image pyramids and sliding wind
 
 # Overview
 * The steps of this project are the following:
+    * Detecting objects with HOG/SVM
     * Detecting objects with image pyramids and sliding windows
-    * Detecting objects with YOLOv3 from scratch
+    * Detecting objects with YOLOv3(OopenCV)
+    * Detecting objects with YOLOv3 from scratch (Tensorflow)
+    * Detecting objects with Faster RCNN
+    * Detecting objects with Mask RCNN
 
-
-## Running obj_pyramids_sliding.py
+<!-- ## Running obj_pyramids_sliding.py
 * object detector with <b>image pyramids</b> and <b>sliding windows</b>.
 
 * <b>Sample Image</b>
@@ -36,4 +39,4 @@ Object detection with You Only Look Once (YOLO), image pyramids and sliding wind
 
 ## Contact
 * Reach me out here: https://www.linkedin.com/in/hasanoqool/
-#
+# -->
