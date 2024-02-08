@@ -5,7 +5,7 @@ Object detection with You Only Look Once (YOLO) using OpenCV,
 Object detection with You Only Look Once (YOLO) using Tensorflow,
 Object detection with Faster RCNN,
 Object detection with Mask RCNN.
-
+ 
 # Overview
 * The steps of this project are the following:
     * Detecting objects with HOG/SVM
